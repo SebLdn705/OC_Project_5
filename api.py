@@ -9,7 +9,7 @@ app.config["DEBUG"] = True
 # creation of test data
 meta = [
     {
-        'title': 'test question for the API OpenClassrooms project #5'
+        'title': 'kjshfksdjfs project #5'
     }
 ]
 

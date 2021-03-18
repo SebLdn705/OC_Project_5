@@ -1,7 +1,8 @@
 from flask import Flask
-from flask import request, jsonify
+from flask import request, jsonify, render_template
 from utils.utils import text_preprocess
 from joblib import load
+from models import models
 
 # creation of the Flask application object
 app = Flask(__name__)
@@ -15,11 +16,21 @@ def predict():
         try:
             json_ = request.json
             data = json_
-            question_processed = text_preprocess(str(data['question']))
-            model.predict_proba(question_processed)
 
-            return jsonify({"prediction": question_processed})
+            model_path = "models/stack_overflow_tag_prediction.joblib"
+            target_path = "models/target_col.joblib"
+            model = load(model_path)
+            target_col = load(target_path)
 
+            output = []
+            question = data['question']
+            processed_text = text_preprocess(question)
+            output.append(' '.join(processed_text))
+
+            result = models.prediction(model, 0.35, output, target_col)
+
+            return jsonify({"prediction": result})
+            # return json_
         except:
             return jsonify({"trace": traceback.format_exc()})
 
@@ -29,16 +40,30 @@ def predict():
 # type of request for the web applications:
 #  - GET to send data from the application to the user
 #  - POST to receive data from the user
-# @app.route("/", methods=['GET'])
-# def index():
-#     return 'test'
+@app.route("/", methods=['GET', 'POST'])
+def home():
+    if request.method == 'POST':
+
+        model_path = "models/stack_overflow_tag_prediction.joblib"
+        target_path = "models/target_col.joblib"
+        model = load(model_path)
+        target_col = load(target_path)
+
+        output = []
+        question = request.form.get('question')
+        processed_text = text_preprocess(question)
+        output.append(' '.join(processed_text))
+
+        result = models.prediction(model, 0.35, output, target_col)
+    return render_template('index.html', prediction=result)
+    # return render_template('index.html')
 #
+
 # # A route to return all of the available entries in our catalog.
 # @app.route('/test', methods=['GET'])
 # def api_all():
 #     return jsonify(meta)
 
 if __name__ == "__main__":
-    model_path = "models/stack_overflow_tag_prediction.joblib"
-    model = load(model_path)
+
     app.run()  # run the application server

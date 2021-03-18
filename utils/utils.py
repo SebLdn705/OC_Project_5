@@ -6,7 +6,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem import SnowballStemmer
 from nltk import pos_tag
 
-def text_preprocess(text: str) -> str:
+def text_preprocess(text: str):
     clean = CleanText()
     token = Tokenisation()
     normalise = Normalise(add_stop_word=['gt', 'lt'])
@@ -23,7 +23,7 @@ def text_preprocess(text: str) -> str:
     return cleaned_text
 
 
-def pipe_exec(text: object, pipeline: object) -> str:
+def pipe_exec(text: object, pipeline: object):
     token = text
     for transform in pipeline:
         token = transform(token)
@@ -57,7 +57,7 @@ class CleanText:
 
     def process(self, text: str,
                 reg_ex: str,
-                lower_cap: bool = True) -> str:
+                lower_cap: bool = True):
 
         if lower_cap:
             text.lower()
@@ -103,10 +103,9 @@ class Normalise:
 
     def pos_filter(self,
                    text: list,
-                   word_exclusion: str = None):
+                   word_exclusion: list = DEFAULT_POS_EXCLUSION):
 
-        if word_exclusion is None:
-            word_excl = word_exclusion
+        word_excl = word_exclusion
 
         output = []
 

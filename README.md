@@ -2,7 +2,7 @@
 OC Project with the aim to create an auto tag suggestion based on ML Technics. The query is made via a Flask API.
 
 
-##**Table of contents**
+## **Table of contents**
 
 * [General Info](#general-info)
 * [Technologies](#technologies)

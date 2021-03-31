@@ -1,8 +1,10 @@
 from flask import Flask
-from flask import request, jsonify, render_template
+from flask import request, jsonify
 from utils.utils import text_preprocess
 from joblib import load
 from models import models
+import traceback
+
 
 # creation of the Flask application object
 app = Flask(__name__)

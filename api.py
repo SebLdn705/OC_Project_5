@@ -18,9 +18,9 @@ target_col = load(target_path)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-'''
-    API tag prediction function
-'''
+    '''
+        API tag prediction function
+    '''
     try:
         json_ = request.json
         data = json_

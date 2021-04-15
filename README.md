@@ -52,6 +52,8 @@ The API is running with:
 * flask: 1.1.2
 * joblib: 0.14.1
 * pandas: 1.0.3
+* gensim==3.8.3
+* scikit-learn==0.22.1
 
 
 

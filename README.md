@@ -38,7 +38,7 @@ to send the question with the below format (example from a Jupyter Notebook)
 
 URL = 'http://127.0.0.1.5000/predict'
 
-params = {'question': 'Your stack overflow question/Title'} -> format is under a dictionary type
+params = {'question': 'Your stack overflow question/Title'}
 
 r = requests.post(url=URL, json=params)
 

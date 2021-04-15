@@ -33,7 +33,8 @@ http://127.0.0.1:5000/predict
 The API requires the question to be sent under a JSON format. For instance, to get the predicted tags it is recommended 
 to send the question with the below format (example from a Jupyter Notebook)
 
-import requests
+
+```import requests
 
 URL = 'http://127.0.0.1.5000/predict'
 
@@ -42,6 +43,7 @@ params = {'question': 'Your stack overflow question/Title'} -> format is under a
 r = requests.post(url=URL, json=params)
 
 question = r.json()
+```
 
 ### Technologies
 

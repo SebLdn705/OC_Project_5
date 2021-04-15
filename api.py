@@ -5,7 +5,6 @@ from joblib import load
 from models import models
 import traceback
 
-
 # creation of the Flask application object
 app = Flask(__name__)
 # start the debugger - if code is not correct than an error will appear when the app is visited
@@ -19,7 +18,9 @@ target_col = load(target_path)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-
+'''
+    API tag prediction function
+'''
     try:
         json_ = request.json
         data = json_

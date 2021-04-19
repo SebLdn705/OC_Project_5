@@ -11,10 +11,16 @@ def text_preprocess(text: str):
     token = Tokenisation()
     normalise = Normalise(add_stop_word=['gt', 'lt'])
 
+    # pipeline = [clean.multi_clean,
+    #             token.nltk_reg_ex,
+    #             normalise.stopwords,
+    #             normalise.pos_filter,
+    #             normalise.lemmatizer
+    #             ]
+
     pipeline = [clean.multi_clean,
                 token.nltk_reg_ex,
                 normalise.stopwords,
-                normalise.pos_filter,
                 normalise.lemmatizer
                 ]
 

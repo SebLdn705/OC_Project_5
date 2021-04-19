@@ -15,3 +15,7 @@ porter_test
 vader_lexicon
 treebank
 dependency_treebank
+word_tokenize
+regexp_tokenize
+WordNetLemmatizer
+SnowballStemmer

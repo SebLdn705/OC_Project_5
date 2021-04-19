@@ -25,8 +25,6 @@ a better manner by using more keywords (programming specific language)
 
 Clone the repository using git clone https://github.com/SebLdn705/OC_Project_5.git
 
-In order to run the model from a jupyter notebook, you'll need to run the python api.py. The server should be working 
-http://127.0.0.1:5000/predict
 
 ### How to pass the question to the API
 
@@ -36,12 +34,10 @@ to send the question with the below format (example from a Jupyter Notebook)
 
 ```import requests
 
-URL = 'http://127.0.0.1.5000/predict'
-
-params = {'question': 'Your stack overflow question/Title'}
+URL = 'https://oc-stackoverflow-prediction.herokuapp.com/predict'
+params = {'question':'how to set up a project in c#?'}
 
 r = requests.post(url=URL, json=params)
-
 question = r.json()
 ```
 

@@ -1,0 +1,8 @@
+wordnet
+word_tokenize
+regexp_tokenize
+WordNetLemmatizer
+SnowballStemmer
+stopwords
+averaged_perceptron_tagger
+pos_tag

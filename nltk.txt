@@ -1,2 +1,3 @@
 stopwords
 pos_tag
+averaged_perceptron_tagger
